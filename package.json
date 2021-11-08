@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "gif-portal-solana",
+  "version": "1.0.0",
+  "description": "Gif Portal built with React and Rust on Solana chain",
+  "main": "index.js", 
+  "author": "Florian Bouron",
+  "repository": "https://github.com/FlorianBouron/gif-portal-solana.git",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn workspace frontend start"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
