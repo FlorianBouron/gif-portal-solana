@@ -117,9 +117,6 @@ const App = () => {
             ? renderConnectedContainer()
             : renderNotConnectedContainer()}
         </div>
-        <div className="footer-container">
-          <div className="footer-text">Made with (L) by Florian</div>
-        </div>
       </div>
     </div>
   );
