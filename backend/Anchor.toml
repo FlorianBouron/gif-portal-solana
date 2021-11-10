@@ -9,4 +9,4 @@ cluster = "localnet"
 wallet = "/Users/florianbouron/.config/solana/id.json"
 
 [scripts]
-test = "npx mocha -t 1000000 tests/"
+test = "node tests/backend.js"
