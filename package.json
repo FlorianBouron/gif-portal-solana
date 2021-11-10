@@ -8,7 +8,8 @@
   "repository": "https://github.com/FlorianBouron/gif-portal-solana.git",
   "license": "MIT",
   "scripts": {
-    "start": "yarn workspace frontend start"
+    "start": "yarn workspace frontend start",
+    "test": "yarn workspace backend test"
   },
   "workspaces": [
     "backend",
