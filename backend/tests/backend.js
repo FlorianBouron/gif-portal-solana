@@ -2,7 +2,7 @@ const anchor = require('@project-serum/anchor');
 const { SystemProgram } = anchor.web3;
 
 const main = async() => {
-  console.log("🚀 Starting test...")
+  console.log("🚀 Starting test...");
 
   const provider = anchor.Provider.env();
   anchor.setProvider(provider);
@@ -21,17 +21,18 @@ const main = async() => {
 
   let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log('👀 GIF Count', account.totalGifs.toString())
-	
-  // Call add_gif!
-  await program.rpc.addGif({
+
+  await program.rpc.addGif("insert_a_giphy_link_here", {
     accounts: {
       baseAccount: baseAccount.publicKey,
+      user: provider.wallet.publicKey,
     },
   });
   
   // Get the account again to see what changed.
   account = await program.account.baseAccount.fetch(baseAccount.publicKey);
-  console.log('👀 GIF Count', account.totalGifs.toString())
+  console.log('👀 GIF Count', account.totalGifs.toString());
+  console.log('👀 GIF List', account.gifList);
 }
 
 const runMain = async () => {
