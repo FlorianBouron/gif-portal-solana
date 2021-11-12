@@ -3,7 +3,10 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "test": "anchor test"
+        "test": "anchor test",
+        "build": "anchor build",
+        "deploy": "solana program deploy /Users/florianbouron/Code/gif-portal-solana/backend/target/deploy/backend.so",
+        "keygen": "solana-keygen new -o target/deploy/gifportal-keypair.json"
     },
     "dependencies": {
         "@project-serum/anchor": "^0.18.0"

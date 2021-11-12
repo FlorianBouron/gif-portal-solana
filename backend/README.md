@@ -27,7 +27,7 @@ solana balance
 
 Get program ID
 ```bash
-solana address -k target/deploy/backend-keypair.json
+solana-keygen new -o target/deploy/gifportal-keypair.json
 ```
 
 ## Anchor.toml configurations

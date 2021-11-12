@@ -9,7 +9,10 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn workspace frontend start",
-    "test": "yarn workspace backend test"
+    "build": "yarn workspace backend build",
+    "deploy": "yarn workspace backend deploy",
+    "test": "yarn workspace backend test",
+    "keygen": "yarn workspace backend keygen"
   },
   "workspaces": [
     "backend",

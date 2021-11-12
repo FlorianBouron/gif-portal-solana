@@ -1,5 +1,5 @@
 [programs.devnet]
-backend = "4imuQ8bDKmpC1BUuEc66kCnQBa4ddVfEjuyCX69TDvrR"
+backend = "3Mu86YGsvy5xrzv4tRbprNFuRzv4TzV2p64wDsgQLyhG"
 
 [registry]
 url = "https://anchor.projectserum.com"
