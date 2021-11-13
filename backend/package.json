@@ -5,7 +5,7 @@
     "scripts": {
         "test": "anchor test",
         "build": "anchor build",
-        "deploy": "solana program deploy /Users/florianbouron/Code/gif-portal-solana/backend/target/deploy/backend.so",
+        "deploy": "solana program deploy /Users/florianbouron/Code/gif-portal-solana/backend/target/deploy/gifportal.so",
         "keygen": "solana-keygen new -o target/deploy/gifportal-keypair.json"
     },
     "dependencies": {

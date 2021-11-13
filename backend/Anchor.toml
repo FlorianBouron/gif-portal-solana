@@ -1,5 +1,5 @@
 [programs.devnet]
-backend = "3Mu86YGsvy5xrzv4tRbprNFuRzv4TzV2p64wDsgQLyhG"
+gifportal = "GRkiawveUFgbACA95mZqbtrDnJaTLYbSGX6pTixwMin2"
 
 [registry]
 url = "https://anchor.projectserum.com"
@@ -9,4 +9,4 @@ cluster = "localnet"
 wallet = "/Users/florianbouron/.config/solana/id.json"
 
 [scripts]
-test = "node tests/backend.js"
+test = "node tests/gifportal.js"

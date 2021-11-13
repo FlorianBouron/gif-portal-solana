@@ -1,4 +1,9 @@
 ## How to build the project
+Start by installing the node packages with `yarn`:
+```bash
+yarn
+```
+
 Run:
 ```bash
 yarn build
