@@ -12,7 +12,8 @@
     "build": "yarn workspace backend build",
     "deploy": "yarn workspace backend deploy",
     "test": "yarn workspace backend test",
-    "keygen": "yarn workspace backend keygen"
+    "keygen": "yarn workspace backend keygen",
+    "keygen:frontend": "yarn workspace backend keygen:frontend"
   },
   "workspaces": [
     "backend",

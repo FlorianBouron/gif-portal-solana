@@ -6,7 +6,8 @@
         "test": "anchor test",
         "build": "anchor build",
         "deploy": "solana program deploy /Users/florianbouron/Code/gif-portal-solana/backend/target/deploy/gifportal.so",
-        "keygen": "solana-keygen new -o target/deploy/gifportal-keypair.json"
+        "keygen": "solana-keygen new -o target/deploy/gifportal-keypair.json",
+        "keygen:frontend": "node createKeyPair.js"
     },
     "dependencies": {
         "@project-serum/anchor": "^0.18.0"

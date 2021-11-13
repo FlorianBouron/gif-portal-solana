@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { Connection, PublicKey, clusterApiUrl} from '@solana/web3.js';
 import { Program, Provider, web3 } from '@project-serum/anchor';
 import idl from './idl.json';
+import kp from './keypair.json';
 import "./App.css";
 
 const { SystemProgram, Keypair } = web3;
-const baseAccount = Keypair.generate();
+const arr = Object.values(kp._keypair.secretKey);
+const secret = new Uint8Array(arr);
+const baseAccount = Keypair.fromSecretKey(secret);
 const programID = new PublicKey(idl.metadata.address);
 const network = clusterApiUrl('devnet');
 const opts = {
@@ -16,13 +19,6 @@ const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [gifList, setGifList] = useState([]);
-
-  const TEST_GIFS = [
-    "https://64.media.tumblr.com/tumblr_m23fw6na0N1qb8a3ro1_500.gifv",
-    "https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif?cid=790b761106a3606a9cc8fa93b1d5f9ada17c64a2bcc3df15&rid=giphy.gif&ct=g",
-    "https://media4.giphy.com/media/10LKovKon8DENq/giphy.gif?cid=790b7611ee42d00e3788b771d89cc26bb506157550ead1b9&rid=giphy.gif&ct=ghttps://media4.giphy.com/media/10LKovKon8DENq/giphy.gif?cid=790b7611ee42d00e3788b771d89cc26bb506157550ead1b9&rid=giphy.gif&ct=g",
-    "https://media1.giphy.com/media/0ZufpQKEBuCKnmnKe8/giphy.gif?cid=790b7611b5876e6ae630469834090e81a1ae1175891244c9&rid=giphy.gif&ct=g",
-  ];
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -89,10 +85,26 @@ const App = () => {
   };
 
   const sendGif = async () => {
-    if (inputValue.length > 0) {
-      console.log('Gif link:', inputValue);
-    } else {
-      console.log('Empty input. Try again.');
+    if (inputValue.length === 0) {
+      console.log("No gif link given!")
+      return
+    }
+    console.log('Gif link:', inputValue);
+    try {
+      const provider = getProvider();
+      const program = new Program(idl, programID, provider);
+  
+      await program.rpc.addGif(inputValue, {
+        accounts: {
+          baseAccount: baseAccount.publicKey,
+          user: provider.wallet.publicKey,
+        },
+      });
+      console.log("GIF successfully sent to program", inputValue)
+  
+      await getGifList();
+    } catch (error) {
+      console.log("Error sending GIF:", error)
     }
   };
 
